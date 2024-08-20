@@ -2,7 +2,7 @@ import { StyleSheet, Text, View } from 'react-native'
 import React, { useEffect } from 'react'
 import { Slot, SplashScreen, Stack } from 'expo-router'
 import { useFonts } from 'expo-font'
-
+import GlobalProvider from "./../context/GlobalProvider"
 SplashScreen.preventAutoHideAsync()
 
 const RootLayout = () => {
@@ -27,6 +27,7 @@ const RootLayout = () => {
     return null
   }
   return (
+    <GlobalProvider>
     <Stack>
       <Stack.Screen name="index" options={{headerShown:false}}/>
       <Stack.Screen
@@ -38,6 +39,7 @@ const RootLayout = () => {
       options={{headerShown:false}}
       />
     </Stack>
+    </GlobalProvider>
   )
 }
 
